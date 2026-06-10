@@ -87,7 +87,15 @@ h2 {
   padding: 18px;
 }
 
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .button-link {
+  display: inline-flex;
+  align-items: center;
   padding: 10px 14px;
   border: 1px solid var(--ink);
   text-decoration: none;
