@@ -23,6 +23,11 @@ a {
   color: var(--ink);
 }
 
+code {
+  color: #fff1a8;
+  font-family: Consolas, "Courier New", monospace;
+}
+
 .site-shell {
   display: grid;
   gap: 28px;
@@ -56,16 +61,22 @@ h2 {
 }
 
 .hero,
+.nav-panel,
+.posts,
 .projects,
 .project-item,
+.list-item,
 .site-footer,
+.post article,
 .policy section {
   border: 1px solid var(--line);
   background: var(--field);
 }
 
 .hero,
+.posts,
 .projects,
+.post article,
 .policy section {
   display: grid;
   gap: 16px;
@@ -73,10 +84,33 @@ h2 {
 }
 
 .intro,
+.list-item p,
+.post p,
+.post li,
 .project-item p,
 .policy p {
   color: var(--muted);
   line-height: 1.7;
+}
+
+.nav-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 18px;
+}
+
+.list-item {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+}
+
+.list-item time,
+.post-meta {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .project-item {
@@ -118,6 +152,29 @@ h2 {
 .site-footer a,
 .text-link {
   text-underline-offset: 3px;
+}
+
+.post {
+  width: min(820px, 100%);
+}
+
+.post article {
+  gap: 20px;
+}
+
+.post h1 {
+  font-size: clamp(32px, 7vw, 64px);
+}
+
+.post h2 {
+  margin-top: 10px;
+}
+
+.post ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 20px;
 }
 
 .policy {

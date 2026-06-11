@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>정적 블로그로 zozindev.com 운영하기 - zozindev</title>
+    <meta name="description" content="zozindev.com을 정적 블로그와 포트폴리오 허브로 운영하기 위해 정한 구조와 첫 작업 기록입니다.">
+    <meta name="robots" content="index, follow">
+    <meta name="google-adsense-account" content="ca-pub-5779110294111958">
+    <link rel="canonical" href="https://zozindev.com/blog/2026-06-11-starting-static-blog.html">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="zozindev">
+    <meta property="og:title" content="정적 블로그로 zozindev.com 운영하기">
+    <meta property="og:description" content="zozindev.com을 정적 블로그와 포트폴리오 허브로 운영하기 위해 정한 구조와 첫 작업 기록입니다.">
+    <meta property="og:url" content="https://zozindev.com/blog/2026-06-11-starting-static-blog.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="theme-color" content="#000000">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779110294111958" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <main class="site-shell post">
+      <a class="text-link" href="/blog/">Blog</a>
+      <article>
+        <header>
+          <p class="eyebrow">Build Log</p>
+          <h1>정적 블로그로 zozindev.com 운영하기</h1>
+          <p class="post-meta">2026-06-11</p>
+        </header>
+        <p>zozindev.com은 처음에는 프로젝트 링크를 모아두는 루트 페이지에 가까웠다. 하지만 AdSense 심사와 장기 운영을 생각하면 단순 링크 모음만으로는 부족하다. 검색 엔진이 읽을 수 있는 자체 콘텐츠가 있어야 하고, 방문자가 이 도메인이 어떤 목적을 가진 사이트인지 바로 이해할 수 있어야 한다.</p>
+        <p>그래서 현재 단계에서는 새 프레임워크를 도입하지 않고 정적 HTML 구조로 블로그를 시작한다. 파일 수가 적고, 배포 방식이 단순하며, 루트 도메인을 개인 블로그와 포트폴리오 허브로 키우는 데 필요한 기본 요소를 직접 통제할 수 있기 때문이다.</p>
+        <h2>처음 정한 구조</h2>
+        <ul>
+          <li><code>/blog/</code>는 글 목록을 담당한다.</li>
+          <li><code>/projects/</code>는 프로젝트 목록을 담당한다.</li>
+          <li>개별 글은 <code>/blog/yyyy-mm-dd-topic.html</code> 형식으로 둔다.</li>
+          <li>개별 프로젝트는 <code>/projects/project-name.html</code> 형식으로 둔다.</li>
+        </ul>
+        <p>이 방식은 수동 관리가 필요하지만 초기 규모에서는 오히려 장점이 있다. 각 페이지의 제목, 설명, canonical, sitemap 등록을 직접 확인하면서 사이트 구조를 배울 수 있고, 불필요한 빌드 단계 없이 바로 배포할 수 있다.</p>
+        <h2>운영 기준</h2>
+        <p>루트 페이지는 최신 글과 주요 프로젝트를 보여주는 허브로 둔다. 블로그 글은 제작 과정, 문제 해결, 운영 기록을 중심으로 작성한다. 프로젝트 페이지는 외부 앱으로 바로 보내기 전에 해당 프로젝트가 무엇인지 설명하는 중간 페이지 역할을 한다.</p>
+        <p>글이 충분히 쌓이고 sitemap 수정이나 목록 갱신이 반복 작업으로 부담될 때 정적 사이트 생성기를 검토한다. 그 전까지는 HTML 파일을 명시적으로 관리하면서 사이트의 기본기를 먼저 잡는 것이 목표다.</p>
+      </article>
+      <footer class="site-footer">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="/projects/">Projects</a>
+      </footer>
+    </main>
+  </body>
+</html>
