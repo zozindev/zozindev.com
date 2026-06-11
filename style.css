@@ -101,9 +101,11 @@ h2 {
 }
 
 .list-item {
+  position: relative;
   display: grid;
   gap: 8px;
   padding: 18px;
+  text-decoration: none;
 }
 
 .list-item time,
@@ -114,6 +116,7 @@ h2 {
 }
 
 .project-item {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 18px;
@@ -121,7 +124,22 @@ h2 {
   padding: 18px;
 }
 
+.card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.list-item:hover,
+.project-item:hover,
+.list-item:focus-visible,
+.project-item:focus-within {
+  border-color: var(--ink);
+}
+
 .project-actions {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
