@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import PostList from "../../components/PostList.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { sortPostsByDate } from "../../lib/site";
+
+const posts = sortPostsByDate(await getCollection("posts"));
+---
+
+<BaseLayout
+  title="Blog - zozindev"
+  description="zozindev의 개발 기록, 취미 프로젝트 제작 과정, 정적 웹사이트 운영 노트를 모아둔 블로그다."
+  canonicalPath="/blog/"
+  ogTitle="Blog - zozindev"
+  ogDescription="zozindev의 개발 기록과 취미 프로젝트 제작 과정을 적어둔다."
+>
+  <section class="hero" aria-labelledby="blog-title">
+    <p class="eyebrow">Blog</p>
+    <h1 id="blog-title">zozindev Blog</h1>
+    <p class="intro">만들면서 막힌 것, 대충 넘기면 또 맞을 것 같은 것들을 적어둔다.</p>
+  </section>
+
+  <section class="posts" aria-labelledby="posts-title">
+    <h2 id="posts-title">All Posts</h2>
+    <PostList posts={posts} />
+  </section>
+
+  <footer class="site-footer">
+    <a href="/">Home</a>
+    <a href="/projects/">Projects</a>
+    <a href="/privacy.html">Privacy Policy</a>
+  </footer>
+</BaseLayout>

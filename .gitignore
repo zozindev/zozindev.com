@@ -1,2 +1,4 @@
 BLOG_OPERATION_PLAN.md
-
+node_modules/
+dist/
+.astro/

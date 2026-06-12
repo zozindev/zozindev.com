@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { projects } from "../../data/projects";
+---
+
+<BaseLayout
+  title="Projects - zozindev"
+  description="zozindev가 만든 웹 도구와 개인 프로젝트를 모아둔 포트폴리오 페이지다."
+  canonicalPath="/projects/"
+  ogTitle="Projects - zozindev"
+  ogDescription="zozindev가 만든 웹 도구와 개인 프로젝트를 모아둔 페이지다."
+>
+  <section class="hero" aria-labelledby="projects-title">
+    <p class="eyebrow">Portfolio</p>
+    <h1 id="projects-title">Projects</h1>
+    <p class="intro">직접 만든 웹 도구와 실험 프로젝트 모음. 결과물만 던져놓으면 뭔지 모르니까 기록도 같이 둔다.</p>
+  </section>
+
+  <section class="projects" aria-label="Project list">
+    {
+      projects.map((project) => (
+        <article class="project-item">
+          <a class="card-link" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={project.ariaLabel} />
+          <div>
+            <h3>{project.title}</h3>
+            <p>{project.listDescription}</p>
+          </div>
+          <div class="project-actions">
+            <a class="button-link" href={project.detailUrl}>자세히</a>
+          </div>
+        </article>
+      ))
+    }
+  </section>
+
+  <footer class="site-footer">
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="/privacy.html">Privacy Policy</a>
+  </footer>
+</BaseLayout>
