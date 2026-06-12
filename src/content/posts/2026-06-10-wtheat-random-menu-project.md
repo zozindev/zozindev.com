@@ -1,7 +1,7 @@
 ---
 title: "WTHeat 음식 추천 웹앱 제작 기록"
 description: "WTHeat 음식 추천 웹앱을 만들면서 잡은 목적, 기능 범위, 운영 방식 기록이다."
-date: "2026-06-11"
+date: "2026-06-10"
 category: "Project"
 priority: 0.7
 ---

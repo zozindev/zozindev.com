@@ -181,7 +181,8 @@ h2 {
 }
 
 .post h1 {
-  font-size: clamp(32px, 7vw, 64px);
+  font-size: clamp(28px, 4.5vw, 42px);
+  line-height: 1.15;
 }
 
 .post h2 {
