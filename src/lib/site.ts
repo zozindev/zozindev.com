@@ -17,3 +17,7 @@ export function sortPostsByDate<T extends { data: { date: string } }>(posts: T[]
 export function postSlug(post: { id: string }) {
   return post.id.replace(/\.md$/, "");
 }
+
+export function postUrl(post: { id: string }) {
+  return `/blog/${postSlug(post)}/`;
+}

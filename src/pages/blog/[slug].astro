@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import PostLayout from "../../layouts/PostLayout.astro";
-import { postSlug } from "../../lib/site";
+import { postSlug, postUrl } from "../../lib/site";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -20,7 +20,7 @@ const { Content } = await render(post);
   description={post.data.description}
   date={post.data.date}
   category={post.data.category}
-  canonicalPath={`/blog/${postSlug(post)}.html`}
+  canonicalPath={postUrl(post)}
 >
   <Content />
 </PostLayout>

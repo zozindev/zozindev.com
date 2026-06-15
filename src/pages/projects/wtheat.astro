@@ -5,7 +5,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 <BaseLayout
   title="WTHeat - zozindev Projects"
   description="WTHeat은 무엇을 먹을지 빠르게 정하기 위한 음식 추천 웹앱이다. 제작 목적과 운영 방향을 적어둔다."
-  canonicalPath="/projects/wtheat.html"
+  canonicalPath="/projects/wtheat/"
   ogTitle="WTHeat - zozindev Projects"
   ogDescription="무엇을 먹을지 빠르게 정하기 위한 음식 추천 웹앱이다."
   shellClass="site-shell post"
@@ -18,17 +18,27 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <p class="post-meta">Food recommendation web app</p>
     </header>
     <p>WTHeat은 메뉴 선택을 빨리 끝내려고 만든 음식 추천 웹앱이다. 밥 하나 고르는데 에너지 쓰기 싫어서 만든 쪽에 가깝다.</p>
+    <p>이 앱의 목표는 취향을 완벽하게 분석하는 게 아니다. 사용자가 점심이나 저녁 메뉴를 못 정하고 있을 때, 후보를 빠르게 좁히도록 돕는 것이다. 그래서 첫 화면에서 바로 추천 결과를 볼 수 있는 흐름을 우선으로 잡았다.</p>
     <h2>핵심 기능</h2>
     <ul>
       <li>음식 추천 결과 제공</li>
       <li>가볍게 접근할 수 있는 웹앱 구조</li>
       <li>모바일에서도 바로 사용할 수 있는 화면</li>
     </ul>
+    <h2>만든 배경</h2>
+    <p>메뉴 선택은 작지만 매일 반복되는 문제다. 한 번은 별거 아니어도 계속 반복되면 귀찮다. WTHeat은 그 반복되는 결정을 줄이려고 만든 작은 도구다.</p>
+    <p>처음부터 많은 설정을 넣지는 않았다. 설정이 많아지면 사용자는 추천을 받기 전에 또 다른 선택을 해야 한다. 그래서 현재 방향은 간단한 입력과 빠른 결과에 맞춰져 있다.</p>
+    <h2>운영 방식</h2>
+    <p>실제 앱은 서브도메인에서 운영하고, 이 페이지는 프로젝트 설명과 기록을 담당한다. 앱 화면은 사용에 집중하고, 루트 사이트는 제작 이유와 개선 방향을 정리하는 구조다.</p>
+    <p>이렇게 나누면 앱이 가벼워진다. 동시에 검색 엔진이나 방문자가 읽을 수 있는 설명은 zozindev.com에 남길 수 있다. 단순 외부 링크보다 프로젝트의 맥락이 분명해진다.</p>
     <h2>운영 상태</h2>
     <p>서비스는 <code>https://wtheat.zozindev.com/</code>에서 돈다. GitHub 저장소는 private이라 공개 안 함.</p>
+    <h2>다음 개선 방향</h2>
+    <p>앞으로는 추천 이유를 조금 더 명확하게 보여주는 쪽을 생각하고 있다. 메뉴 이름만 보여주면 너무 뜬금없을 수 있어서, 상황 태그나 간단한 설명을 붙이는 방식이 후보가 될 수 있다.</p>
+    <p>다만 기능을 많이 넣는 게 목표는 아니다. WTHeat은 빠르게 메뉴를 정하는 도구여야 한다. 기능을 추가하더라도 첫 사용 흐름이 느려지면 다시 줄이는 쪽으로 볼 생각이다.</p>
     <h2>관련 글</h2>
     <ul>
-      <li><a href="/blog/2026-06-11-wtheat-random-menu-project.html">WTHeat 음식 추천 웹앱 제작 기록</a></li>
+      <li><a href="/blog/2026-06-10-wtheat-random-menu-project/">WTHeat 음식 추천 웹앱 제작 기록</a></li>
     </ul>
   </article>
   <footer class="site-footer">

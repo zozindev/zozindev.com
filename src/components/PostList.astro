@@ -1,5 +1,5 @@
 ---
-import { postSlug } from "../lib/site";
+import { postUrl } from "../lib/site";
 
 interface Post {
   id: string;
@@ -19,7 +19,7 @@ const { posts } = Astro.props;
 
 {
   posts.map((post) => (
-    <a class="list-item" href={`/blog/${postSlug(post)}.html`}>
+    <a class="list-item" href={postUrl(post)}>
       <time datetime={post.data.date}>{post.data.date}</time>
       <h3>{post.data.title}</h3>
       <p>{post.data.description}</p>
