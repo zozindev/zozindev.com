@@ -5,6 +5,9 @@
   --muted: #c8a600;
   --line: #3a3000;
   --field: #0a0a0a;
+  --field-hover: rgba(254, 208, 2, 0.06);
+  --glow: rgba(254, 208, 2, 0.28);
+  --glow-strong: rgba(254, 208, 2, 0.48);
 }
 
 * {
@@ -12,6 +15,8 @@
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   margin: 0;
   min-height: 100vh;
   background: var(--page);
@@ -19,8 +24,25 @@ body {
   font-family: "Noto Sans KR", Pretendard, Arial, sans-serif;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(254, 208, 2, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(254, 208, 2, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0%, rgba(254, 208, 2, 0.14), transparent 38%);
+  background-size: 44px 44px, 44px 44px, 100% 100%;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 78%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 78%);
+}
+
 a {
   color: var(--ink);
+  text-decoration-thickness: 1px;
+  transition: color 180ms ease, text-shadow 180ms ease, text-underline-offset 180ms ease;
 }
 
 code {
@@ -31,14 +53,41 @@ code {
 pre {
   max-width: 100%;
   overflow-x: auto;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: #111111;
+  box-shadow: inset 0 0 0 1px rgba(254, 208, 2, 0.04);
 }
 
 .site-shell {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 28px;
   width: min(920px, 100%);
   margin: 0 auto;
   padding: 48px 20px;
+}
+
+.site-shell > * {
+  animation: page-enter 620ms ease both;
+}
+
+.site-shell > *:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.site-shell > *:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+.site-shell > *:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+.site-shell > *:nth-child(5) {
+  animation-delay: 320ms;
 }
 
 .eyebrow {
@@ -59,6 +108,7 @@ p {
 h1 {
   font-size: clamp(36px, 8vw, 84px);
   line-height: 0.95;
+  text-shadow: 0 0 18px rgba(254, 208, 2, 0.2);
 }
 
 h2 {
@@ -76,6 +126,7 @@ h2 {
 .policy section {
   border: 1px solid var(--line);
   background: var(--field);
+  box-shadow: 0 0 0 1px rgba(254, 208, 2, 0.025), 0 18px 48px rgba(0, 0, 0, 0.28);
 }
 
 .hero,
@@ -86,6 +137,25 @@ h2 {
   display: grid;
   gap: 16px;
   padding: 24px;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 0%, rgba(254, 208, 2, 0.12) 42%, transparent 58%);
+  transform: translateX(-120%);
+  animation: sweep 4.8s ease-in-out 700ms infinite;
+}
+
+.hero h1 {
+  animation: title-pulse 4s ease-in-out infinite;
 }
 
 .intro,
@@ -111,6 +181,7 @@ h2 {
   gap: 8px;
   padding: 18px;
   text-decoration: none;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .list-item time,
@@ -127,6 +198,20 @@ h2 {
   gap: 18px;
   align-items: center;
   padding: 18px;
+  overflow: hidden;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.project-item::before,
+.list-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(254, 208, 2, 0.12), transparent);
+  opacity: 0;
+  transform: translateX(-90%);
+  transition: opacity 180ms ease, transform 420ms ease;
 }
 
 .card-link {
@@ -140,6 +225,17 @@ h2 {
 .list-item:focus-visible,
 .project-item:focus-within {
   border-color: var(--ink);
+  background: linear-gradient(135deg, var(--field-hover), var(--field));
+  box-shadow: 0 0 0 1px rgba(254, 208, 2, 0.12), 0 0 26px var(--glow);
+  transform: translateY(-2px);
+}
+
+.list-item:hover::before,
+.project-item:hover::before,
+.list-item:focus-visible::before,
+.project-item:focus-within::before {
+  opacity: 1;
+  transform: translateX(90%);
 }
 
 .project-actions {
@@ -151,18 +247,48 @@ h2 {
 }
 
 .button-link {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   padding: 10px 14px;
   border: 1px solid var(--ink);
   text-decoration: none;
   font-weight: 800;
+  transition: color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.button-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(254, 208, 2, 0.2), transparent);
+  transform: translateX(-120%);
+  transition: transform 420ms ease;
 }
 
 .button-link:hover,
 .text-link:hover,
 .site-footer a:hover {
   color: #fff1a8;
+  text-shadow: 0 0 12px var(--glow);
+}
+
+.button-link:hover,
+.button-link:focus-visible {
+  background: rgba(254, 208, 2, 0.08);
+  box-shadow: 0 0 18px var(--glow);
+  transform: translateY(-1px);
+}
+
+.button-link:hover::before,
+.button-link:focus-visible::before {
+  transform: translateX(120%);
+}
+
+.text-link:hover,
+.site-footer a:hover {
+  text-underline-offset: 6px;
 }
 
 .site-footer {
@@ -170,6 +296,7 @@ h2 {
   flex-wrap: wrap;
   gap: 14px;
   padding: 18px;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
 }
 
 .site-footer a,
@@ -199,7 +326,20 @@ h2 {
 }
 
 .post h2 {
+  position: relative;
   margin-top: 10px;
+  padding-left: 16px;
+}
+
+.post h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 4px;
+  height: 1.05em;
+  background: var(--ink);
+  box-shadow: 0 0 14px var(--glow);
 }
 
 .post ul {
@@ -211,14 +351,21 @@ h2 {
 
 .project-preview {
   margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000000;
 }
 
 .project-preview img {
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid var(--line);
-  background: #000000;
+  transition: transform 380ms ease, filter 380ms ease;
+}
+
+.project-preview:hover img {
+  filter: drop-shadow(0 0 20px var(--glow));
+  transform: scale(1.015);
 }
 
 .policy {
@@ -247,5 +394,51 @@ h2 {
 
   .button-link {
     width: fit-content;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes title-pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 18px rgba(254, 208, 2, 0.18);
+  }
+
+  50% {
+    text-shadow: 0 0 28px var(--glow-strong);
+  }
+}
+
+@keyframes sweep {
+  0%,
+  58% {
+    transform: translateX(-120%);
+  }
+
+  76%,
+  100% {
+    transform: translateX(120%);
   }
 }
