@@ -28,6 +28,11 @@ code {
   font-family: Consolas, "Courier New", monospace;
 }
 
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 .site-shell {
   display: grid;
   gap: 28px;
@@ -178,11 +183,19 @@ h2 {
 
 .post article {
   gap: 20px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .post h1 {
   font-size: clamp(28px, 4.5vw, 42px);
   line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.post a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .post h2 {
@@ -217,6 +230,17 @@ h2 {
 }
 
 @media (max-width: 560px) {
+  .post h1 {
+    font-size: clamp(24px, 7vw, 30px);
+  }
+
+  .post h1,
+  .post p,
+  .post li,
+  .post a {
+    word-break: break-all;
+  }
+
   .project-item {
     grid-template-columns: 1fr;
   }

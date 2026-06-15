@@ -30,7 +30,7 @@ export async function GET() {
   }));
   const projectPages = projects.map((project) => ({
     path: project.detailUrl,
-    lastmod: "2026-06-11",
+    lastmod: project.lastmod,
     changefreq: "monthly",
     priority: "0.7",
   }));

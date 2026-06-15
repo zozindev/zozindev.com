@@ -5,7 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { projects } from "../data/projects";
 import { site, sortPostsByDate } from "../lib/site";
 
-const posts = sortPostsByDate(await getCollection("posts")).slice(0, 3);
+const posts = sortPostsByDate(await getCollection("posts")).slice(0, 4);
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
