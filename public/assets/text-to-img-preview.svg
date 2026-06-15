@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">TEXT_TO_IMG preview</title>
+  <desc id="desc">A dark yellow preview card for a text to image generator.</desc>
+  <rect width="960" height="540" fill="#000000"/>
+  <rect x="78" y="58" width="804" height="424" rx="18" fill="#0a0a0a" stroke="#3a3000" stroke-width="3"/>
+  <text x="120" y="120" fill="#c8a600" font-family="Arial, sans-serif" font-size="25" font-weight="700">TEXT_TO_IMG</text>
+  <rect x="118" y="154" width="392" height="240" rx="12" fill="#111111" stroke="#fed002" stroke-width="3"/>
+  <text x="154" y="242" fill="#fed002" font-family="Arial, sans-serif" font-size="42" font-weight="900">텍스트를</text>
+  <text x="154" y="296" fill="#fed002" font-family="Arial, sans-serif" font-size="42" font-weight="900">이미지로</text>
+  <text x="154" y="344" fill="#c8a600" font-family="Arial, sans-serif" font-size="22">PNG JPG WebP</text>
+  <rect x="560" y="165" width="260" height="44" rx="8" fill="#151200" stroke="#fed002" stroke-width="2"/>
+  <rect x="560" y="238" width="170" height="44" rx="8" fill="#151200" stroke="#fed002" stroke-width="2"/>
+  <rect x="560" y="312" width="220" height="56" rx="8" fill="#fed002"/>
+  <text x="606" y="348" fill="#000000" font-family="Arial, sans-serif" font-size="24" font-weight="900">다운로드</text>
+  <line x1="560" y1="408" x2="820" y2="408" stroke="#3a3000" stroke-width="3"/>
+</svg>

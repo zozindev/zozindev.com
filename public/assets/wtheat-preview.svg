@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">WTHeat preview</title>
+  <desc id="desc">A dark yellow preview card for the WTHeat food recommendation app.</desc>
+  <rect width="960" height="540" fill="#000000"/>
+  <rect x="80" y="64" width="800" height="412" rx="18" fill="#0a0a0a" stroke="#3a3000" stroke-width="3"/>
+  <text x="120" y="128" fill="#c8a600" font-family="Arial, sans-serif" font-size="26" font-weight="700">WTHeat</text>
+  <text x="120" y="204" fill="#fed002" font-family="Arial, sans-serif" font-size="56" font-weight="800">오늘 뭐 먹지?</text>
+  <rect x="120" y="250" width="330" height="118" rx="10" fill="#111111" stroke="#fed002" stroke-width="3"/>
+  <text x="150" y="318" fill="#fed002" font-family="Arial, sans-serif" font-size="36" font-weight="800">김치찌개</text>
+  <text x="150" y="354" fill="#c8a600" font-family="Arial, sans-serif" font-size="20">빠르게 메뉴 후보를 좁히는 도구</text>
+  <rect x="500" y="252" width="260" height="52" rx="8" fill="#fed002"/>
+  <text x="552" y="286" fill="#000000" font-family="Arial, sans-serif" font-size="22" font-weight="800">다시 추천</text>
+  <rect x="500" y="326" width="260" height="52" rx="8" fill="#151200" stroke="#fed002" stroke-width="2"/>
+  <text x="560" y="360" fill="#fed002" font-family="Arial, sans-serif" font-size="22" font-weight="800">상황 태그</text>
+  <circle cx="785" cy="130" r="48" fill="#fed002"/>
+  <text x="758" y="145" fill="#000000" font-family="Arial, sans-serif" font-size="42" font-weight="900">?</text>
+</svg>

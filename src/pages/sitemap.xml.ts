@@ -6,6 +6,8 @@ const staticPages = [
   { path: "/", lastmod: "2026-06-11", changefreq: "monthly", priority: "1.0" },
   { path: "/blog/", lastmod: "2026-06-11", changefreq: "weekly", priority: "0.8" },
   { path: "/projects/", lastmod: "2026-06-11", changefreq: "monthly", priority: "0.8" },
+  { path: "/about/", lastmod: "2026-06-15", changefreq: "monthly", priority: "0.6" },
+  { path: "/contact/", lastmod: "2026-06-15", changefreq: "yearly", priority: "0.4" },
   { path: "/privacy/", lastmod: "2026-06-11", changefreq: "yearly", priority: "0.3" },
 ];
 
