@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">정산 칠판 preview</title>
+  <desc id="desc">A classroom-style chalkboard preview for the Dutchpay Board settlement app.</desc>
+  <rect width="960" height="540" fill="#e6c28f"/>
+  <rect x="0" y="354" width="960" height="186" fill="#b47a48"/>
+  <rect x="290" y="34" width="380" height="472" rx="28" fill="#1d332b" stroke="#5a3822" stroke-width="12"/>
+  <rect x="318" y="68" width="324" height="400" rx="18" fill="#234638"/>
+  <text x="350" y="118" fill="#f8f3df" font-family="Arial, sans-serif" font-size="22" font-weight="700">정산 칠판</text>
+  <text x="350" y="162" fill="#f6d37a" font-family="Arial, sans-serif" font-size="34" font-weight="900">제주여행 정산</text>
+  <rect x="350" y="194" width="260" height="74" rx="10" fill="#f8f3df" opacity="0.16"/>
+  <text x="374" y="224" fill="#f8f3df" font-family="Arial, sans-serif" font-size="18" font-weight="700">총 지출</text>
+  <text x="374" y="254" fill="#f6d37a" font-family="Arial, sans-serif" font-size="28" font-weight="900">186,000원</text>
+  <rect x="350" y="292" width="260" height="104" rx="10" fill="#000000" opacity="0.2"/>
+  <text x="374" y="326" fill="#f8f3df" font-family="Arial, sans-serif" font-size="20" font-weight="800">보낼 돈</text>
+  <text x="374" y="358" fill="#f6d37a" font-family="Arial, sans-serif" font-size="24" font-weight="900">민지 → 종현 31,000원</text>
+  <text x="374" y="388" fill="#f6d37a" font-family="Arial, sans-serif" font-size="24" font-weight="900">현우 → 수진 12,000원</text>
+  <rect x="350" y="420" width="260" height="44" rx="8" fill="#f6d37a"/>
+  <text x="416" y="449" fill="#24331f" font-family="Arial, sans-serif" font-size="20" font-weight="900">공유 이미지 만들기</text>
+  <rect x="120" y="96" width="160" height="116" rx="14" fill="#8a5b32"/>
+  <rect x="140" y="116" width="120" height="76" rx="6" fill="#f8f3df"/>
+  <text x="162" y="162" fill="#5a3822" font-family="Arial, sans-serif" font-size="20" font-weight="900">영수증</text>
+  <rect x="700" y="122" width="128" height="74" rx="10" fill="#f8f3df"/>
+  <text x="724" y="168" fill="#234638" font-family="Arial, sans-serif" font-size="24" font-weight="900">1/N</text>
+  <circle cx="174" cy="388" r="26" fill="#f8f3df"/>
+  <circle cx="234" cy="388" r="26" fill="#f6d37a"/>
+  <circle cx="782" cy="392" r="26" fill="#f8f3df"/>
+  <path d="M260 388H700" stroke="#f8f3df" stroke-width="8" stroke-linecap="round" stroke-dasharray="18 18"/>
+</svg>

@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="정산 칠판 - zozindev Projects"
+  description="정산 칠판은 모임 지출을 입력하면 누가 누구에게 얼마 보내면 되는지 계산해주는 더치페이 웹앱이다."
+  canonicalPath="/projects/dutchpay-board/"
+  ogTitle="정산 칠판 - zozindev Projects"
+  ogDescription="영수증을 쌓아두고 마지막에 송금 횟수를 줄인 정산 결과를 보여주는 더치페이 웹앱이다."
+  shellClass="site-shell post"
+>
+  <a class="text-link" href="/projects/">Projects</a>
+  <article>
+    <header>
+      <p class="eyebrow">Project</p>
+      <h1>정산 칠판</h1>
+      <p class="post-meta">Mobile-first Dutchpay settlement web app</p>
+    </header>
+    <figure class="project-preview">
+      <img src="/assets/dutchpay-board-preview.svg" alt="정산 칠판 더치페이 웹앱 미리보기 이미지" loading="lazy" />
+    </figure>
+    <p>정산 칠판은 모임 지출을 쌓아두고 마지막에 누가 누구에게 얼마 보내면 되는지 계산해주는 더치페이 도구다. Apps in Toss 모바일 미니앱으로 먼저 출시했고, 웹 버전은 <code>https://dutchpay.zozindev.com/</code>에서 따로 열어뒀다.</p>
+    <p>토스 인앱으로 열 때는 <a href="https://minion.toss.im/3rZQFs9h" target="_blank" rel="noopener noreferrer">모바일용 Toss 인앱 링크</a>를 쓰면 된다. 이 링크는 모바일에서 토스 앱으로 이어지는 용도라 PC에서는 정상 흐름으로 열리지 않을 수 있다.</p>
+    <p>토스 더치페이가 1회성 정산에 가깝다면, 정산 칠판은 여행비나 회식비처럼 여러 영수증이 쌓인 뒤 한 번에 정리하는 흐름에 맞췄다. 기능을 크게 벌리기보다 모임, 멤버, 영수증, 정산 결과까지 한 손으로 지나가는 모바일 SPA로 만들었다.</p>
+
+    <h2>문제 정의</h2>
+    <p>여행이나 회식이 끝나면 돈을 낸 사람이 여러 명이고, 같이 쓴 사람도 매번 다르다. 누가 카드로 냈는지, 누구는 그 자리에 없었는지, 몇 차까지 갔는지 다시 맞추다 보면 계산기와 메신저를 왔다 갔다 하게 된다.</p>
+    <p>정산 칠판은 이 반복을 줄이려고 만들었다. 영수증이 생길 때마다 한 줄씩 넣고, 마지막에 정산 버튼을 누르면 받을 사람과 보낼 사람을 맞춰준다. 목표는 복잡한 회계 앱이 아니라 단체방에 던질 수 있는 정산 결과를 빨리 만드는 것이다.</p>
+
+    <h2>사용 흐름</h2>
+    <p>먼저 모임을 만들고 멤버를 입력한다. 지출이 생기면 결제자, 금액, 메모, 함께 쓴 사람을 넣는다. 정산 화면에서는 사람별로 낸 돈과 쓴 돈, 차액을 보여주고, 송금 횟수를 줄인 결과를 만든다.</p>
+    <p>결과는 텍스트로 복사할 수도 있고, 공유용 이미지로 만들어 다운로드할 수도 있다. 실제 사용 맥락은 단체방 공유라서 결과를 화면에서만 예쁘게 보여주는 것보다 밖으로 꺼내기 쉬운지가 중요했다.</p>
+
+    <h2>핵심 기능</h2>
+    <ul>
+      <li>모임 생성과 인원 입력</li>
+      <li>멤버 추가, 이름 수정, 삭제</li>
+      <li>영수증 추가, 수정, 삭제</li>
+      <li>결제자와 참여 인원 선택</li>
+      <li>정산 계산과 송금 횟수 최소화</li>
+      <li>사람별 정산 결과 설명</li>
+      <li>공유 문구 복사</li>
+      <li>공유용 정산표 이미지 생성과 다운로드</li>
+      <li>브라우저 localStorage 저장</li>
+    </ul>
+
+    <h2>구현 방식</h2>
+    <p>현재 저장소는 npm workspace 구조다. 기존 Apps in Toss 앱은 <code>apps/toss-miniapp</code>으로 옮겼고, 웹 버전은 <code>apps/web</code>으로 만들었다. 공통 정산 로직과 타입은 <code>packages/core</code>로 분리했다.</p>
+    <p>이렇게 나눈 이유는 계산 결과가 두 앱에서 달라지면 안 되기 때문이다. 화면과 실행 환경은 달라도 정산 알고리즘은 하나로 두는 편이 낫다. 웹 버전은 Cloudflare Pages에서 <code>npm run build:web</code>로 빌드하고, 산출물은 <code>apps/web/dist</code>에 생성된다.</p>
+    <p>웹 버전도 모바일 UI를 유지했다. PC에서 열었을 때는 가운데 모바일 앱 프레임을 두고, 바깥에는 교실 배경을 넣었다. 앱 이름이 정산 칠판이라서 칠판 느낌을 유지하는 쪽이 더 자연스러웠다.</p>
+
+    <h2>일부러 뺀 것</h2>
+    <p>웹 버전에는 Apps in Toss SDK, Toss native Storage, Toss 공유 링크, Toss 인앱 광고, 보상형 광고, Toss 리뷰 요청, Toss 네이티브 파일 저장, <code>intoss://</code> 진입 URL을 넣지 않았다. 로그인, 서버 저장, DB, serverless API, 여러 사람 공동 편집, 토스 송금 딥링크도 뺐다.</p>
+    <p>이 앱은 지금 단계에서 빠르게 열고 바로 계산하는 도구에 가깝다. 로그인과 공동 편집을 넣으면 서비스처럼 보일 수는 있지만, 운영해야 할 데이터와 책임도 커진다. 돈과 연결되는 송금 딥링크도 공식 기준과 사용자 맥락을 더 봐야 한다.</p>
+
+    <h2>개인정보 처리 기준</h2>
+    <p>정산 칠판은 전화번호, 계좌번호, 로그인 정보를 받지 않는다. 데이터는 브라우저 localStorage에 저장한다. 서버 저장이나 DB를 쓰지 않는 이유도 여기에 있다.</p>
+    <p>다만 localStorage는 기기 저장소라서 브라우저 데이터를 지우면 같이 사라질 수 있다. 그래서 이 앱은 장기 회계 장부라기보다 모임 정산을 끝내기 위한 가벼운 도구에 가깝다.</p>
+
+    <h2>운영 상태</h2>
+    <p>웹 버전은 <code>https://dutchpay.zozindev.com/</code>에서 돈다. Apps in Toss 버전은 2026년 6월 26일에 출시했고, 웹 버전은 2026년 6월 29일부터 열었다.</p>
+    <p>프로젝트 페이지에서는 웹 버전과 토스 인앱 링크를 분리해서 둔다. 웹 버전은 데스크톱과 모바일 브라우저에서 바로 열 수 있고, 토스 인앱 링크는 모바일 접속 기준으로 안내한다.</p>
+    <p>웹 배포 쪽은 <code>dutchpay.zozindev.com</code> 기준으로 canonical, Open Graph, JSON-LD, <code>robots.txt</code>, <code>sitemap.xml</code>, <code>guide.html</code>, <code>privacy.html</code>, <code>ads.txt</code>를 맞춰뒀다.</p>
+
+    <h2>한계와 다음 개선</h2>
+    <p>현재 버전은 여러 사람이 동시에 같은 모임을 편집하는 앱은 아니다. 링크를 공유하면 같은 데이터를 같이 보는 구조도 아니다. 각 기기 안에서 계산하고 결과를 복사하거나 이미지로 공유하는 쪽이다.</p>
+    <p>다음 개선은 공유 흐름을 더 매끄럽게 만드는 쪽이 맞다. 정산표 이미지 디자인, 항목별 설명, 모바일 입력 편의성, 백업/복원 흐름이 우선이다. 서버와 로그인은 정말 필요하다고 판단될 때만 붙이는 편이 낫다.</p>
+
+    <h2>관련 글</h2>
+    <ul>
+      <li><a href="/blog/2026-06-22-dutchpay-board-app-in-toss/">정산칠판 Apps in Toss 미니앱 제작 기록</a></li>
+      <li><a href="/blog/2026-06-29-dutchpay-board-launch-web-migration/">정산칠판 출시와 웹 버전 분리 기록</a></li>
+    </ul>
+  </article>
+  <footer class="site-footer">
+    <a href="https://dutchpay.zozindev.com/" target="_blank" rel="noopener noreferrer">Open 정산 칠판</a>
+    <a href="https://minion.toss.im/3rZQFs9h" target="_blank" rel="noopener noreferrer">Toss 인앱 링크</a>
+    <a href="https://github.com/zozindev/DutchPay_board" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </footer>
+</BaseLayout>
