@@ -5,15 +5,15 @@ import { projects } from "../../data/projects";
 
 <BaseLayout
   title="Projects - zozindev"
-  description="zozindev가 만든 웹 도구와 개인 프로젝트를 모아둔 포트폴리오 페이지다."
+  description="zozindev가 만든 브라우저 전용 웹 도구의 문제 정의, 사용 예, 개인정보 처리 기준, 관련 글을 모아둔 프로젝트 허브다."
   canonicalPath="/projects/"
   ogTitle="Projects - zozindev"
-  ogDescription="zozindev가 만든 웹 도구와 개인 프로젝트를 모아둔 페이지다."
+  ogDescription="웹 도구별 문제, 해결 방식, 사용 예, 개인정보 처리 기준, 관련 글을 연결한 프로젝트 허브다."
 >
   <section class="hero" aria-labelledby="projects-title">
     <p class="eyebrow">Portfolio</p>
     <h1 id="projects-title">Projects</h1>
-    <p class="intro">직접 만든 웹 도구와 실험 프로젝트 모음. 결과물만 던져놓으면 뭔지 모르니까 기록도 같이 둔다.</p>
+    <p class="intro">직접 만든 웹 도구를 문제, 해결 방식, 사용 예, 개인정보 처리 기준과 같이 정리한 허브다.</p>
   </section>
 
   <section class="posts" aria-labelledby="project-hub-title">
@@ -21,6 +21,18 @@ import { projects } from "../../data/projects";
     <p>이 페이지는 외부 앱 링크만 모아둔 목록이 아니다. 각 프로젝트가 어떤 불편에서 시작됐고, 왜 브라우저 안에서 끝나는 정적 도구로 만들었는지, 실제로 어떤 상황에서 쓰는지를 한 번에 확인하는 포트폴리오 허브다.</p>
     <p>프로젝트를 볼 때는 완성 화면보다 운영 방식이 더 중요할 때가 있다. 이미지나 문구처럼 개인 정보가 섞일 수 있는 입력값을 서버에 저장하지 않는지, 모바일에서 바로 쓸 수 있는지, 기능을 많이 넣기보다 반복 작업을 줄이는 데 집중했는지를 같이 본다.</p>
     <p>아래 요약은 문제, 해결 방식, 주요 기능, 사용 예, 개인정보 처리 기준을 같은 순서로 적었다. 더 자세한 제작 배경과 한계, 다음 개선 방향은 각 상세 페이지와 관련 글에 남겨둔다.</p>
+  </section>
+
+  <section class="posts" aria-labelledby="project-guide-title">
+    <h2 id="project-guide-title">Related guides</h2>
+    <p>도구를 바로 열기 전에 어떤 기준으로 쓰면 좋은지 먼저 보고 싶다면 아래 글을 보면 된다. 각 글은 특정 프로젝트와 연결되지만, 같은 상황에서 다른 도구를 고를 때도 참고할 수 있게 적었다.</p>
+    <ul>
+      <li><a href="/blog/2026-07-01-dutchpay-settlement-checklist/">정산 칠판과 같이 보면 좋은 더치페이 체크리스트</a></li>
+      <li><a href="/blog/2026-07-01-screenshot-masking-routine/">zozincanvas를 쓰기 전 캡처 마스킹 루틴</a></li>
+      <li><a href="/blog/2026-07-01-blog-thumbnail-text-image-workflow/">TEXT_TO_IMG로 썸네일 만들 때 보는 기준</a></li>
+      <li><a href="/blog/2026-07-01-lunch-menu-shortlist-rules/">WTHeat을 쓰기 전 메뉴 후보 줄이는 기준</a></li>
+      <li><a href="/blog/2026-07-01-browser-only-tool-checkpoints/">브라우저 전용 도구를 고를 때 확인할 점</a></li>
+    </ul>
   </section>
 
   <section class="projects" aria-label="Project list">

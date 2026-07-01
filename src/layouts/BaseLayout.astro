@@ -10,6 +10,7 @@ interface Props {
   ogDescription?: string;
   structuredData?: Record<string, unknown>;
   shellClass?: string;
+  includeAdsenseScript?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   ogDescription = description,
   structuredData,
   shellClass = "site-shell",
+  includeAdsenseScript = true,
 } = Astro.props;
 
 const canonical = canonicalUrl(canonicalPath);
@@ -45,10 +47,14 @@ const canonical = canonicalUrl(canonicalPath);
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary" />
     <meta name="theme-color" content="#000000" />
-    <script
-      async
-      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.adsenseAccount}`}
-      crossorigin="anonymous"></script>
+    {
+      includeAdsenseScript && (
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.adsenseAccount}`}
+          crossorigin="anonymous"></script>
+      )
+    }
     {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
     <link rel="stylesheet" href="/style.css" />
   </head>

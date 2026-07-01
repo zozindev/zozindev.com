@@ -5,6 +5,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { sortPostsByDate } from "../../lib/site";
 
 const posts = sortPostsByDate(await getCollection("posts"));
+const guidePosts = posts.filter((post) => post.data.category.toLowerCase() === "guide").slice(0, 10);
+const projectPosts = posts.filter((post) => post.data.category.toLowerCase() === "project").slice(0, 8);
 ---
 
 <BaseLayout
@@ -17,7 +19,19 @@ const posts = sortPostsByDate(await getCollection("posts"));
   <section class="hero" aria-labelledby="blog-title">
     <p class="eyebrow">Blog</p>
     <h1 id="blog-title">zozindev Blog</h1>
-    <p class="intro">만들면서 막힌 것, 대충 넘기면 또 맞을 것 같은 것들을 적어둔다.</p>
+    <p class="intro">개인 웹 도구를 만들고 쓰면서 확인한 기준, 사용 가이드, 제작 기록을 적어둔다.</p>
+  </section>
+
+  <section class="posts" aria-labelledby="blog-guide-title">
+    <h2 id="blog-guide-title">User guides</h2>
+    <p>아래 글은 검색 노출을 위한 잡글이 아니라 실제 도구를 쓰기 전에 보면 좋은 기준이다. 정산, 캡처 이미지, 텍스트 썸네일, 메뉴 결정, 브라우저 전용 도구의 개인정보 기준을 다룬다.</p>
+    <PostList posts={guidePosts} />
+  </section>
+
+  <section class="posts" aria-labelledby="blog-project-title">
+    <h2 id="blog-project-title">Project build logs</h2>
+    <p>프로젝트 글은 완성 결과만 적지 않는다. 왜 만들었는지, 정적 배포로 충분했는지, 서버 저장을 일부러 피한 이유가 있는지, 다음에 무엇을 줄이거나 고칠지까지 남긴다.</p>
+    <PostList posts={projectPosts} />
   </section>
 
   <section class="posts" aria-labelledby="posts-title">
