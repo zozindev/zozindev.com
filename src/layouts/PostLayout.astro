@@ -7,9 +7,10 @@ interface Props {
   date: string;
   category: string;
   canonicalPath: string;
+  includeAdsenseScript?: boolean;
 }
 
-const { title, description, date, category, canonicalPath } = Astro.props;
+const { title, description, date, category, canonicalPath, includeAdsenseScript = true } = Astro.props;
 ---
 
 <BaseLayout
@@ -20,6 +21,7 @@ const { title, description, date, category, canonicalPath } = Astro.props;
   ogTitle={title}
   ogDescription={description}
   shellClass="site-shell post"
+  includeAdsenseScript={includeAdsenseScript}
 >
   <a class="text-link" href="/blog/">Blog</a>
   <article>
