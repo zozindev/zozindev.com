@@ -9,6 +9,7 @@ const posts = defineCollection({
     date: z.string(),
     category: z.string(),
     priority: z.number().default(0.7),
+    includeAdsenseScript: z.boolean().optional(),
   }),
 });
 
