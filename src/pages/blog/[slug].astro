@@ -13,17 +13,19 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const postWordCount = post.body.split(/\s+/).filter(Boolean).length;
-const includeAdsenseScript = post.data.includeAdsenseScript ?? postWordCount >= 600;
+const includeAdsenseScript = post.data.includeAdsenseScript ?? false;
 ---
 
 <PostLayout
   title={post.data.title}
   description={post.data.description}
   date={post.data.date}
+  updated={post.data.updated}
   category={post.data.category}
+  author={post.data.author}
   canonicalPath={postUrl(post)}
   includeAdsenseScript={includeAdsenseScript}
+  indexable={post.data.indexable}
 >
   <Content />
 </PostLayout>

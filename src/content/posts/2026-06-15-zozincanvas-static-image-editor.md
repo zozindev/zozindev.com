@@ -2,7 +2,8 @@
 title: "zozincanvas 정적 이미지 편집기 제작 기록"
 description: "zozincanvas를 브라우저 전용 정적 이미지 편집기로 만든 이유, 기능 범위, 배포 구조를 정리했다."
 date: "2026-06-15"
-category: "Project"
+updated: "2026-07-22"
+category: "case-study"
 priority: 0.7
 ---
 

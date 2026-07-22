@@ -9,6 +9,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   ogTitle="정산 칠판 - zozindev Projects"
   ogDescription="영수증을 쌓아두고 마지막에 송금 횟수를 줄인 정산 결과를 보여주는 더치페이 웹앱이다."
   shellClass="site-shell post"
+  includeAdsenseScript={false}
 >
   <a class="text-link" href="/projects/">Projects</a>
   <article>
@@ -18,7 +19,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <p class="post-meta">Mobile-first Dutchpay settlement web app</p>
     </header>
     <figure class="project-preview">
-      <img src="/assets/dutchpay-board-preview.svg" alt="정산 칠판 더치페이 웹앱 미리보기 이미지" loading="lazy" />
+      <img src="/assets/real/dutchpay-settlement.png" alt="정산 칠판의 실제 사람별 정산 결과 화면" loading="lazy" />
+      <figcaption>여러 영수증을 입력한 뒤 사람별 차액과 송금 결과를 확인하는 화면</figcaption>
     </figure>
     <p>정산 칠판은 모임 지출을 쌓아두고 마지막에 누가 누구에게 얼마 보내면 되는지 계산해주는 더치페이 도구다. Apps in Toss 모바일 미니앱으로 먼저 출시했고, 웹 버전은 <code>https://dutchpay.zozindev.com/</code>에서 따로 열어뒀다.</p>
     <p>토스 인앱으로 열 때는 <a href="https://minion.toss.im/3rZQFs9h" target="_blank" rel="noopener noreferrer">모바일용 Toss 인앱 링크</a>를 쓰면 된다. 이 링크는 모바일에서 토스 앱으로 이어지는 용도라 PC에서는 정상 흐름으로 열리지 않을 수 있다.</p>

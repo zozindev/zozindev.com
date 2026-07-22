@@ -2,13 +2,14 @@
 title: "HTML 수동 블로그를 Astro Markdown 구조로 바꾼 기록"
 description: "zozindev.com 블로그를 HTML 파일 직접 관리 방식에서 Astro와 Markdown 기반 정적 생성 구조로 바꾼 작업 기록이다."
 date: "2026-06-12"
-category: "Build Log"
+updated: "2026-07-22"
+category: "case-study"
 priority: 0.7
 ---
 
 zozindev.com 블로그는 처음에 글 하나마다 HTML 파일을 직접 만드는 방식이었다. 시작할 때는 이게 제일 빨랐다. `index.html`, `blog/index.html`, `blog/*.html`, `sitemap.xml`을 직접 만지면 별도 빌드 도구 없이 바로 배포할 수 있었기 때문이다.
 
-근데 글이 몇 개만 쌓여도 이 방식은 바로 불편해진다. 글 하나 추가하려면 본문 HTML만 쓰는 게 아니라 목록, 최근 글, sitemap, canonical, OG meta, AdSense script까지 계속 신경 써야 한다. 같은 `<head>`를 복사하다가 누락이 생기면 SEO나 AdSense 쪽에서도 귀찮아진다.
+근데 글이 몇 개만 쌓여도 이 방식은 바로 불편해진다. 글 하나 추가하려면 본문 HTML만 쓰는 게 아니라 목록, 최근 글, sitemap, canonical, OG meta까지 계속 신경 써야 한다. 같은 `<head>`를 복사하다가 제목이나 공유 설명을 빼먹는 일도 생겼다.
 
 그래서 오늘은 HTML을 직접 관리하는 구조에서 Markdown 원본을 관리하고 Astro가 정적 HTML을 생성하는 구조로 바꿨다.
 
@@ -41,11 +42,11 @@ priority: 0.7
 
 ## 공통 레이아웃 정리
 
-반복되던 `<head>` 설정은 `BaseLayout.astro`로 뺐다. title, description, canonical, OG meta, AdSense account meta, AdSense script가 한 곳에서 관리된다.
+반복되던 `<head>` 설정은 `BaseLayout.astro`로 뺐다. title, description, canonical, OG meta와 공통 외부 스크립트가 한 곳에서 관리된다.
 
 개별 글 화면은 `PostLayout.astro`가 담당한다. 글마다 공통으로 필요한 뒤로가기 링크, 제목, 날짜, 카테고리, 본문 영역을 여기서 처리한다.
 
-이렇게 해두면 나중에 AdSense 코드나 공통 meta를 바꿀 때 모든 글 HTML을 뒤질 필요가 없다. 한 파일만 고치면 된다.
+이렇게 해두면 나중에 canonical 규칙이나 공통 meta를 바꿀 때 모든 글 HTML을 뒤질 필요가 없다. 한 파일만 고치면 된다.
 
 ## URL은 유지했다
 
@@ -57,7 +58,7 @@ priority: 0.7
 /privacy/
 ```
 
-사이트 내부 링크와 sitemap도 이 최종 URL을 기준으로 맞춘다. 같은 페이지를 여러 주소로 노출하지 않는 편이 검색 엔진과 AdSense 검토에도 덜 헷갈린다.
+사이트 내부 링크와 sitemap도 이 최종 URL을 기준으로 맞춘다. 같은 글이 `.html`, 확장자 없는 주소, trailing slash 주소로 나뉘면 공유 링크와 방문 기록도 제각각이 된다.
 
 ## sitemap 자동 생성
 

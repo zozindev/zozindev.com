@@ -9,6 +9,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   ogTitle="TEXT_TO_IMG - zozindev Projects"
   ogDescription="텍스트를 PNG, JPG, WebP 이미지로 뽑는 정적 웹 도구다."
   shellClass="site-shell post"
+  includeAdsenseScript={false}
 >
   <a class="text-link" href="/projects/">Projects</a>
   <article>
@@ -18,7 +19,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <p class="post-meta">Static text image generator</p>
     </header>
     <figure class="project-preview">
-      <img src="/assets/text-to-img-preview.svg" alt="TEXT_TO_IMG 정적 웹 도구 미리보기 이미지" loading="lazy" />
+      <img src="/assets/real/text-to-img-example.png" alt="TEXT_TO_IMG로 블로그 썸네일 문구를 입력한 실제 화면" loading="lazy" />
+      <figcaption>300×300, 2배 출력, WebP 설정으로 문구를 만든 실제 화면</figcaption>
     </figure>
     <p>TEXT_TO_IMG는 입력한 텍스트를 이미지 파일로 뽑는 정적 웹 도구다. 서버에 저장 안 하고 브라우저 안에서 끝내는 구조다.</p>
     <p>블로그 썸네일, 짧은 공지 이미지, 카드형 문구처럼 간단한 텍스트 이미지를 빨리 만들 때 쓰는 도구다. 전문 디자인 툴을 대체하려는 게 아니라, 자주 쓰는 작은 작업을 줄이는 데 목적이 있다.</p>

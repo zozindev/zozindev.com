@@ -388,6 +388,24 @@ h2 {
   transition: transform 380ms ease, filter 380ms ease;
 }
 
+.project-preview figcaption,
+.post figure figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.post .content-proof {
+  margin: 28px 0;
+}
+
+.post .content-proof img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
 .project-preview:hover img {
   filter: drop-shadow(0 0 20px var(--glow));
   transform: scale(1.015);

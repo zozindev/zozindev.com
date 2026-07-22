@@ -2,7 +2,8 @@
 title: "정산칠판 Apps in Toss 미니앱 제작 기록"
 description: "정산칠판을 Apps in Toss 비게임 미니앱으로 만들면서 잡은 MVP 범위, 정산 로직, 일부러 뺀 기능을 정리했다."
 date: "2026-06-22"
-category: "Project"
+updated: "2026-07-22"
+category: "case-study"
 priority: 0.7
 ---
 

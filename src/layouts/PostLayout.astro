@@ -1,16 +1,50 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import { canonicalUrl, site } from "../lib/site";
 
 interface Props {
   title: string;
   description: string;
   date: string;
+  updated?: string;
   category: string;
+  author: string;
   canonicalPath: string;
   includeAdsenseScript?: boolean;
+  indexable?: boolean;
 }
 
-const { title, description, date, category, canonicalPath, includeAdsenseScript = true } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  updated,
+  category,
+  author,
+  canonicalPath,
+  includeAdsenseScript = false,
+  indexable = true,
+} = Astro.props;
+
+const articleData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description,
+  datePublished: date,
+  dateModified: updated ?? date,
+  mainEntityOfPage: canonicalUrl(canonicalPath),
+  author: {
+    "@type": "Person",
+    name: author,
+    url: `${site.url}/about/`,
+  },
+  publisher: {
+    "@type": "Person",
+    name: site.name,
+    url: site.url,
+  },
+};
 ---
 
 <BaseLayout
@@ -22,13 +56,15 @@ const { title, description, date, category, canonicalPath, includeAdsenseScript 
   ogDescription={description}
   shellClass="site-shell post"
   includeAdsenseScript={includeAdsenseScript}
+  robots={indexable ? "index, follow" : "noindex, follow"}
+  structuredData={articleData}
 >
   <a class="text-link" href="/blog/">Blog</a>
   <article>
     <header>
       <p class="eyebrow">{category}</p>
       <h1>{title}</h1>
-      <p class="post-meta">{date}</p>
+      <p class="post-meta">작성 {date}{updated && updated !== date ? ` · 수정 ${updated}` : ""} · {author}</p>
     </header>
     <slot />
   </article>

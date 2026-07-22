@@ -11,7 +11,7 @@ export const projects = [
     url: "https://dutchpay.zozindev.com/",
     detailUrl: "/projects/dutchpay-board/",
     ariaLabel: "정산 칠판 열기",
-    lastmod: "2026-07-01",
+    lastmod: "2026-07-22",
   },
   {
     title: "zozincanvas",
@@ -25,7 +25,7 @@ export const projects = [
     url: "https://zc.zozindev.com/",
     detailUrl: "/projects/zozincanvas/",
     ariaLabel: "zozincanvas 열기",
-    lastmod: "2026-07-01",
+    lastmod: "2026-07-22",
   },
   {
     title: "WTHeat",
@@ -39,7 +39,7 @@ export const projects = [
     url: "https://wtheat.zozindev.com/",
     detailUrl: "/projects/wtheat/",
     ariaLabel: "WTHeat 열기",
-    lastmod: "2026-07-01",
+    lastmod: "2026-07-22",
   },
   {
     title: "TEXT_TO_IMG",
@@ -53,6 +53,6 @@ export const projects = [
     url: "https://tti.zozindev.com/",
     detailUrl: "/projects/text-to-img/",
     ariaLabel: "TEXT_TO_IMG 열기",
-    lastmod: "2026-07-01",
+    lastmod: "2026-07-22",
   },
 ];

@@ -4,9 +4,9 @@ import PostList from "../../components/PostList.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { sortPostsByDate } from "../../lib/site";
 
-const posts = sortPostsByDate(await getCollection("posts"));
-const guidePosts = posts.filter((post) => post.data.category.toLowerCase() === "guide").slice(0, 10);
-const projectPosts = posts.filter((post) => post.data.category.toLowerCase() === "project").slice(0, 8);
+const posts = sortPostsByDate((await getCollection("posts")).filter((post) => post.data.indexable));
+const guidePosts = posts.filter((post) => post.data.category === "guide");
+const caseStudies = posts.filter((post) => post.data.category === "case-study");
 ---
 
 <BaseLayout
@@ -15,6 +15,7 @@ const projectPosts = posts.filter((post) => post.data.category.toLowerCase() ===
   canonicalPath="/blog/"
   ogTitle="Blog - zozindev"
   ogDescription="zozindev의 개발 기록과 취미 프로젝트 제작 과정을 적어둔다."
+  includeAdsenseScript={false}
 >
   <section class="hero" aria-labelledby="blog-title">
     <p class="eyebrow">Blog</p>
@@ -23,15 +24,15 @@ const projectPosts = posts.filter((post) => post.data.category.toLowerCase() ===
   </section>
 
   <section class="posts" aria-labelledby="blog-guide-title">
-    <h2 id="blog-guide-title">User guides</h2>
-    <p>아래 글은 검색 노출을 위한 잡글이 아니라 실제 도구를 쓰기 전에 보면 좋은 기준이다. 정산, 캡처 이미지, 텍스트 썸네일, 메뉴 결정, 브라우저 전용 도구의 개인정보 기준을 다룬다.</p>
+    <h2 id="blog-guide-title">사용 가이드</h2>
+    <p>정산, 캡처 이미지, 텍스트 썸네일, 메뉴 결정, 브라우저 처리 여부를 실제 예시와 함께 정리했다.</p>
     <PostList posts={guidePosts} />
   </section>
 
   <section class="posts" aria-labelledby="blog-project-title">
-    <h2 id="blog-project-title">Project build logs</h2>
-    <p>프로젝트 글은 완성 결과만 적지 않는다. 왜 만들었는지, 정적 배포로 충분했는지, 서버 저장을 일부러 피한 이유가 있는지, 다음에 무엇을 줄이거나 고칠지까지 남긴다.</p>
-    <PostList posts={projectPosts} />
+    <h2 id="blog-project-title">제작 사례</h2>
+    <p>실제로 만든 기능, 배포 구조, 실패한 부분과 다음 수정 기준을 남긴다.</p>
+    <PostList posts={caseStudies} />
   </section>
 
   <section class="posts" aria-labelledby="posts-title">

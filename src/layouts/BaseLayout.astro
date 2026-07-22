@@ -11,6 +11,7 @@ interface Props {
   structuredData?: Record<string, unknown>;
   shellClass?: string;
   includeAdsenseScript?: boolean;
+  robots?: string;
 }
 
 const {
@@ -22,7 +23,8 @@ const {
   ogDescription = description,
   structuredData,
   shellClass = "site-shell",
-  includeAdsenseScript = true,
+  includeAdsenseScript = false,
+  robots = "index, follow",
 } = Astro.props;
 
 const canonical = canonicalUrl(canonicalPath);
@@ -35,7 +37,7 @@ const canonical = canonicalUrl(canonicalPath);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
     <meta name="google-adsense-account" content={site.adsenseAccount} />
     <meta name="naver-site-verification" content="04703ec049de6b285495f1055cec5696550cfd54" />
     <link rel="canonical" href={canonical} />

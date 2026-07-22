@@ -3,12 +3,10 @@ import { projects } from "../data/projects";
 import { canonicalUrl, postUrl, sortPostsByDate } from "../lib/site";
 
 const staticPages = [
-  { path: "/", lastmod: "2026-07-01", changefreq: "weekly", priority: "1.0" },
-  { path: "/blog/", lastmod: "2026-07-01", changefreq: "weekly", priority: "0.8" },
-  { path: "/projects/", lastmod: "2026-07-01", changefreq: "monthly", priority: "0.8" },
-  { path: "/about/", lastmod: "2026-07-01", changefreq: "monthly", priority: "0.6" },
-  { path: "/contact/", lastmod: "2026-07-01", changefreq: "yearly", priority: "0.4" },
-  { path: "/privacy/", lastmod: "2026-07-01", changefreq: "yearly", priority: "0.3" },
+  { path: "/", lastmod: "2026-07-22", changefreq: "weekly", priority: "1.0" },
+  { path: "/blog/", lastmod: "2026-07-22", changefreq: "weekly", priority: "0.8" },
+  { path: "/projects/", lastmod: "2026-07-22", changefreq: "monthly", priority: "0.8" },
+  { path: "/about/", lastmod: "2026-07-22", changefreq: "monthly", priority: "0.6" },
 ];
 
 function urlEntry(page: { path: string; lastmod: string; changefreq: string; priority: string }) {
@@ -21,10 +19,10 @@ function urlEntry(page: { path: string; lastmod: string; changefreq: string; pri
 }
 
 export async function GET() {
-  const posts = sortPostsByDate(await getCollection("posts"));
+  const posts = sortPostsByDate((await getCollection("posts")).filter((post) => post.data.indexable));
   const postPages = posts.map((post) => ({
     path: postUrl(post),
-    lastmod: post.data.date,
+    lastmod: post.data.updated ?? post.data.date,
     changefreq: "monthly",
     priority: post.data.priority.toFixed(1),
   }));

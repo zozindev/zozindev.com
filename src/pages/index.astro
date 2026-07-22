@@ -5,7 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { projects } from "../data/projects";
 import { site, sortPostsByDate } from "../lib/site";
 
-const posts = sortPostsByDate(await getCollection("posts")).slice(0, 6);
+const posts = sortPostsByDate((await getCollection("posts")).filter((post) => post.data.indexable)).slice(0, 6);
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -32,7 +32,7 @@ const structuredData = {
 >
   <section class="hero" aria-labelledby="site-title">
     <h1 id="site-title">ZOZINDEV</h1>
-    <p class="intro">브라우저 전용 웹 도구, 사용 가이드, 제작 기록을 모아둔 개인 콘텐츠 허브</p>
+    <p class="intro">직접 만든 브라우저 도구와 실제로 써보며 정리한 기준</p>
   </section>
 
   <section class="nav-panel" aria-label="Site sections">
@@ -44,10 +44,10 @@ const structuredData = {
   </section>
 
   <section class="posts" aria-labelledby="site-purpose-title">
-    <h2 id="site-purpose-title">What this site keeps</h2>
-    <p>zozindev.com은 만든 웹 도구를 그냥 링크로만 던져두지 않으려고 운영하는 기록 공간이다. 실제 앱은 서브도메인에서 가볍게 돌리고, 루트 사이트에는 왜 만들었는지, 어떤 문제를 줄이려고 했는지, 사용자가 어떤 기준으로 쓰면 좋은지를 남긴다.</p>
-    <p>이 사이트의 중심은 작은 웹 도구와 그 도구를 안전하게 쓰는 방법이다. 정산 칠판은 모임 정산 실수를 줄이는 데, zozincanvas는 캡처 이미지의 민감한 정보를 가리는 데, WTHeat은 점심 메뉴 결정을 줄이는 데, TEXT_TO_IMG는 블로그 썸네일과 공지 이미지를 빠르게 만드는 데 맞춰져 있다.</p>
-    <p>글은 결과물 홍보보다 사용 기준에 가깝다. 더치페이 정산 전 확인할 것, 캡처를 공유하기 전에 가릴 것, 브라우저에서만 처리하는 도구가 언제 유리한지 같은 내용을 실제 작업 흐름 기준으로 적는다.</p>
+    <h2 id="site-purpose-title">여기서 다루는 것</h2>
+    <p>이미지 한 장 가리려고 파일을 서버에 올리기 싫었고, 썸네일 하나 만들려고 큰 편집기를 켜기 싫었다. 여행 정산을 하면서 영수증마다 참여자가 다른 경우도 자주 헷갈렸다. 이 사이트에 연결된 도구는 그런 작은 불편에서 시작했다.</p>
+    <p>루트 사이트에는 앱 링크만 두지 않는다. 실제 화면, 입력 예시, 계산 결과, 브라우저에서 확인한 저장 방식과 한계를 같이 남긴다. 도구가 해결하지 못하는 부분도 숨기지 않는다.</p>
+    <p>처음 보는 사람이라면 아래 다섯 가이드 중 필요한 것부터 보면 된다. 각 글은 지금 운영 중인 도구와 실제 결과물을 기준으로 작성했다.</p>
   </section>
 
   <section class="posts" aria-labelledby="guide-start-title">
